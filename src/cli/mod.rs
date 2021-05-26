@@ -16,19 +16,8 @@
 //!
 //! Definitions of available command-line actions.
 
+use dmntk_common::{DMNTK_COPYRIGHT, DMNTK_EXECUTABLE, DMNTK_NAME, DMNTK_VERSION};
 use std::{env, path::Path};
-
-/// Name of the platform.
-pub const DMNTK_NAME: &str = "Decision Model and Notation Toolkit";
-
-/// Name of the executable.
-pub const DMNTK_EXECUTABLE: &str = "dmntk";
-
-/// Current version of the platform.
-pub const DMNTK_VERSION: &str = "0.0.3";
-
-/// Copyright note.
-pub const DMNTK_COPYRIGHT: &str = "Copyright Ⓒ 2018-2021 Dariusz Depta Engos Software <dariusz.depta@engos.software>";
 
 /// Command name for recognizing decision table from text.
 const CMD_RDT: &str = "rdt";

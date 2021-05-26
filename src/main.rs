@@ -12,8 +12,6 @@
  * SOFTWARE.
  */
 
-#![feature(proc_macro_hygiene, decl_macro)]
-
 extern crate serde;
 #[cfg(feature = "bin")]
 #[macro_use]

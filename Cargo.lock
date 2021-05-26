@@ -6,6 +6,16 @@ version = 3
 name = "dmntk"
 version = "0.0.3"
 dependencies = [
+ "dmntk-common",
+ "serde",
+ "serde_derive",
+ "serde_yaml",
+]
+
+[[package]]
+name = "dmntk-common"
+version = "0.0.6"
+dependencies = [
  "serde",
  "serde_derive",
  "serde_yaml",
