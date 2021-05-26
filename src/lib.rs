@@ -12,12 +12,7 @@
  * SOFTWARE.
  */
 
-#[cfg(not(feature = "bin"))]
-fn main() {
-  println!("Decision Model and Notation Toolkit needs be compiled with --features=bin");
-}
-
-#[cfg(feature = "bin")]
-fn main() {
-  println!("Decision Model and Notation");
+/// Starts the REST server.
+pub fn start_server() {
+  unimplemented!()
 }

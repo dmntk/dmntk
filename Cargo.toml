@@ -1,11 +1,18 @@
 [package]
 name = "dmntk"
-version = "0.0.1"
+version = "0.0.2"
 authors = ["Dariusz Depta <dariusz.depta@engos.software>"]
 description = "WIP: DMNTK | Decision Model and Notation Toolkit."
 documentation = "https://docs.rs/dmntk"
 repository = "https://github.com/dmntk/dmntk.git"
 license = "MIT"
 edition = "2018"
+
+[[bin]]
+name = "dmntk"
+
+[features]
+default = []
+bin = []
 
 [dependencies]
