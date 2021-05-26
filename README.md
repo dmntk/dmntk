@@ -1,4 +1,2 @@
-# DMNTK
-
-## Decision Model and Notation Toolkit
+# Decision Model and Notation Toolkit
 
