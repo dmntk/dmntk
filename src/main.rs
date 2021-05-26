@@ -15,12 +15,15 @@
 #![feature(proc_macro_hygiene, decl_macro)]
 
 extern crate serde;
+#[cfg(feature = "bin")]
 #[macro_use]
 extern crate serde_derive;
 extern crate serde_yaml;
 
+#[cfg(feature = "bin")]
 mod cli;
 
+#[cfg(feature = "bin")]
 use crate::cli::Action;
 
 /// Main entrypoint of the library.
