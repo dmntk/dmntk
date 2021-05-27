@@ -66,9 +66,9 @@ pub enum Action {
   /// Test decision table loaded from `DTB` file.
   TestDecisionTable(String),
   /// Parse `FEEL` textual expression loaded from text file.
-  ParseFeelTextualExpression(String),
+  ParseFeelTextualExpression(String, String),
   /// Evaluate `FEEL` textual expression loaded from text file.
-  EvaluateFeelTextualExpression(String),
+  EvaluateFeelTextualExpression(String, String),
   /// Do nothing, no action was specified.
   NoAction,
 }
@@ -81,10 +81,10 @@ fn show_usage() {
   println!("\nCOMMANDS:");
   println!("  {}  dtb_file             Recognize decision table defined in text file.", CMD_RDT);
   println!("  {}  dtb_file             Parse decision table defined in text file.", CMD_PDT);
-  println!("  {}  dtb_file ctx_file    Evaluate decision table against context defined in file.", CMD_EDT);
-  println!("  {}  dtb_file             Test decision table defined in file.", CMD_TDT);
-  println!("  {}  feel_file            Parse FEEL textual expression defined in text file.", CMD_PTX);
-  println!("  {}  feel_file            Evaluate FEEL textual expression defined in text file.", CMD_ETX);
+  println!("  {}  dtb_file ctx_file    Evaluate decision table defined in text file.", CMD_EDT);
+  println!("  {}  dtb_file             Test decision table defined in text file.", CMD_TDT);
+  println!("  {}  feel_file ctx_file   Parse FEEL textual expression defined in text file.", CMD_PTX);
+  println!("  {}  feel_file ctx_file   Evaluate FEEL textual expression defined in text file.", CMD_ETX);
   println!("  {}  config_file          Run DMNTK as a service.", CMD_SRV);
   println!("  -h, --help, help          Display help.");
   println!("  -v, --version, version    Display version.");
@@ -153,8 +153,8 @@ pub fn action() -> Action {
     CMD_PDT if one_file(options) => Action::ParseDecisionTable(options[1].to_owned()),
     CMD_EDT if two_files(options) => Action::EvaluateDecisionTable(options[1].to_owned(), options[2].to_owned()),
     CMD_TDT if one_file(options) => Action::TestDecisionTable(options[1].to_owned()),
-    CMD_PTX if one_file(options) => Action::ParseFeelTextualExpression(options[1].to_owned()),
-    CMD_ETX if one_file(options) => Action::EvaluateFeelTextualExpression(options[1].to_owned()),
+    CMD_PTX if two_files(options) => Action::ParseFeelTextualExpression(options[1].to_owned(), options[2].to_owned()),
+    CMD_ETX if two_files(options) => Action::EvaluateFeelTextualExpression(options[1].to_owned(), options[2].to_owned()),
     CMD_SRV if one_file(options) => Action::StartServer(get_config(options[1].to_owned())),
     _ => {
       show_usage();
