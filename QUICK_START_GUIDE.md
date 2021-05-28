@@ -1,28 +1,31 @@
-## Usage
+# Quick Start Guide
 
-### Using DMNTK as a library
+Install `dmntk` as an application (see [Usage](USAGE.md) for details).
 
-DMNTK can be used a library.
+Create a text file named `ex1.ctx`, copy the following content and save.
 
-To use DMNTK as a library, add the following to your `Cargo.toml`:
+This is the evaluation context:
 
-```toml
-[dependencies]
-dmntk = "0.0.3"
+```text
+{}
 ```
 
-### Using DMNTK as an application
+Create a text file named `ex1.feel`, copy the following content and save.
 
-DMNTK can be also used as an application.
+This is the evaluated `FEEL` textual expression:
 
-The easiest way to install DMNTK as an application is using `cargo`:
-
-```shell
-$ cargo install dmntk --features=bin
+```text
+1 + 2
 ```
 
-Now DMNTK can be run as an application:
+Now, to evaluate this expression, type:
 
 ```shell
-$ dmntk
+# dmntk etx ex1.feel ex1.ctx
+```
+
+The result should be:
+
+```shell
+3
 ```
