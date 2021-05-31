@@ -48,7 +48,7 @@ checksum = "6245d59a3e82a7fc217c5828a6692dbc6dfb63a0c8c90495621f7b9d79704a0e"
 
 [[package]]
 name = "dmntk"
-version = "0.0.6"
+version = "0.0.7"
 dependencies = [
  "dmntk-common",
  "dmntk-evaluator",
@@ -61,7 +61,7 @@ dependencies = [
 
 [[package]]
 name = "dmntk-common"
-version = "0.0.6"
+version = "0.0.7"
 dependencies = [
  "serde",
  "serde_derive",
@@ -70,7 +70,7 @@ dependencies = [
 
 [[package]]
 name = "dmntk-evaluator"
-version = "0.0.6"
+version = "0.0.7"
 dependencies = [
  "dmntk-common",
  "dmntk-feel",
@@ -81,7 +81,7 @@ dependencies = [
 
 [[package]]
 name = "dmntk-feel"
-version = "0.0.6"
+version = "0.0.7"
 dependencies = [
  "chrono",
  "chrono-tz",
@@ -94,7 +94,7 @@ dependencies = [
 
 [[package]]
 name = "dmntk-feel-grammar"
-version = "0.0.6"
+version = "0.0.7"
 dependencies = [
  "convert_case",
  "regex",
@@ -105,7 +105,7 @@ dependencies = [
 
 [[package]]
 name = "dmntk-feel-parser"
-version = "0.0.6"
+version = "0.0.7"
 dependencies = [
  "dmntk-common",
  "dmntk-feel",
