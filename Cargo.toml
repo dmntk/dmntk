@@ -21,6 +21,7 @@ dmntk-common = { path = "../common", version = "0.0.7"}
 dmntk-evaluator = { path = "../evaluator", version = "0.0.7"}
 dmntk-feel = { path = "../feel", version = "0.0.7"}
 dmntk-feel-parser = { path = "../feel-parser", version = "0.0.7"}
+dmntk-server = { path = "../server", version = "0.0.7"}
 serde = "1.0.125"
 serde_derive = "1.0.125"
 serde_yaml = "0.8"

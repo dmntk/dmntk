@@ -15,9 +15,9 @@
 extern crate dmntk_common;
 extern crate dmntk_evaluator;
 extern crate dmntk_feel;
+extern crate dmntk_server;
 extern crate serde;
 #[cfg(feature = "bin")]
-#[macro_use]
 extern crate serde_derive;
 extern crate serde_yaml;
 

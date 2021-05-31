@@ -37,18 +37,19 @@ pub fn action() {
       // test_decision_table_from_file(dtb_file_name);
     }
     Action::ParseFeelTextualExpression(feel_file_name, ctx_file_name) => {
+      // parses `FEEL` textual expression against the specified context
       parse_textual_expression_from_file(&feel_file_name, &ctx_file_name);
     }
     Action::EvaluateFeelTextualExpression(feel_file_name, ctx_file_name) => {
+      // evaluates `FEEL` textual expression against the specified context
       evaluate_textual_expression_from_file(&feel_file_name, &ctx_file_name);
     }
     Action::StartServer(server_config) => {
-      //FIXME remove when implemented
-      print!("Starting DMNTK server with configuration: {:?}", server_config);
-      // server::start(server_config)
+      // starts REST server
+      dmntk_server::start_server(server_config)
     }
     Action::NoAction => {
-      // do nothing
+      // does nothing
     }
   }
 }

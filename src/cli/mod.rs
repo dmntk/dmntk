@@ -16,7 +16,7 @@
 //!
 //! Definitions of available command-line actions.
 
-use dmntk_common::{DMNTK_COPYRIGHT, DMNTK_EXECUTABLE, DMNTK_NAME, DMNTK_VERSION};
+use dmntk_common::{ServerConfiguration, DMNTK_COPYRIGHT, DMNTK_EXECUTABLE, DMNTK_NAME, DMNTK_VERSION};
 use std::{env, path::Path};
 
 /// Command name for recognizing decision table from text.
@@ -39,19 +39,6 @@ const CMD_ETX: &str = "etx";
 
 /// Command name for starting platform as a service.
 const CMD_SRV: &str = "srv";
-
-/// Struct of the server address
-#[derive(Debug, Serialize, Deserialize)]
-pub struct ServerAddress {
-  pub host: String,
-  pub port: u16,
-}
-
-/// Struct of the server configuration
-#[derive(Debug, Serialize, Deserialize)]
-pub struct ServerConfiguration {
-  pub server: ServerAddress,
-}
 
 /// Available command-line actions.
 pub enum Action {

@@ -12,7 +12,7 @@
  * SOFTWARE.
  */
 
-/// Starts the REST server.
+/// Starts REST server.
 pub fn start_server() {
   unimplemented!()
 }
