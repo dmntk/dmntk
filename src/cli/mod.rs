@@ -16,7 +16,7 @@
 //!
 //! Definitions of available command-line actions.
 
-use dmntk_common::{ServerConfiguration, DMNTK_COPYRIGHT, DMNTK_EXECUTABLE, DMNTK_NAME, DMNTK_VERSION};
+use dmntk_common::{Configuration, ServerConfiguration, DMNTK_COPYRIGHT, DMNTK_EXECUTABLE, DMNTK_NAME, DMNTK_VERSION};
 use std::{env, path::Path};
 
 /// Command name for recognizing decision table from text.
@@ -111,7 +111,7 @@ fn two_files(options: &[String]) -> bool {
 }
 
 /// Reads and parses configuration file.
-fn get_config(config_file_name: String) -> ServerConfiguration {
+fn get_config(config_file_name: String) -> Configuration {
   let err_read = format!("reading configuration file '{}' failed", config_file_name);
   let file_content = std::fs::read_to_string(&config_file_name).expect(&err_read);
   let err_parse = format!("parsing configuration file '{}' failed", config_file_name);
@@ -142,7 +142,7 @@ pub fn action() -> Action {
     CMD_TDT if one_file(options) => Action::TestDecisionTable(options[1].to_owned()),
     CMD_PTX if two_files(options) => Action::ParseFeelTextualExpression(options[1].to_owned(), options[2].to_owned()),
     CMD_ETX if two_files(options) => Action::EvaluateFeelTextualExpression(options[1].to_owned(), options[2].to_owned()),
-    CMD_SRV if one_file(options) => Action::StartServer(get_config(options[1].to_owned())),
+    CMD_SRV if one_file(options) => Action::StartServer(get_config(options[1].to_owned()).server),
     _ => {
       show_usage();
       Action::NoAction
