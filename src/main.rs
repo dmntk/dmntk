@@ -15,6 +15,7 @@
 extern crate dmntk_common;
 extern crate dmntk_evaluator;
 extern crate dmntk_feel;
+extern crate dmntk_recognizer;
 extern crate dmntk_server;
 extern crate serde;
 #[cfg(feature = "bin")]
@@ -27,7 +28,6 @@ mod cli;
 #[cfg(feature = "bin")]
 mod actions;
 
-/// Main entrypoint of the library.
 #[cfg(not(feature = "bin"))]
 fn main() {
   println!("Decision Model and Notation Toolkit needs be compiled with --features=bin");
