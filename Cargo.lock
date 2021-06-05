@@ -374,6 +374,7 @@ name = "dmntk-workspace"
 version = "0.0.7"
 dependencies = [
  "dmntk-common",
+ "dmntk-evaluator",
  "dmntk-feel",
  "dmntk-model",
  "lazy_static",

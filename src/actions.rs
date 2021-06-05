@@ -94,15 +94,12 @@ fn evaluate_decision_table_from_file(dtb_file_name: String, ctx_file_name: Strin
     Ok(ref context_input) => {
       // read decision table input from file
       match std::fs::read_to_string(dtb_file_name.as_str()) {
-        Ok(ref decision_table_input) => {
-          match dmntk_evaluator::evaluate_context_and_decision_table(decision_table_input, context_input) {
-            Ok(value) => {
-              // print the result
-              println!("{}", value.stringify())
-            }
-            Err(reason) => println!("{}", reason),
+        Ok(ref decision_table_input) => match dmntk_evaluator::evaluate_decision_table_and_context(decision_table_input, context_input) {
+          Ok(value) => {
+            println!("{}", value.stringify())
           }
-        }
+          Err(reason) => println!("{}", reason),
+        },
         Err(reason) => println!("loading decision table file `{}` failed with reason: {}", dtb_file_name, reason),
       }
     }
@@ -113,7 +110,7 @@ fn evaluate_decision_table_from_file(dtb_file_name: String, ctx_file_name: Strin
 /// Tests decision table loaded from file.
 fn test_decision_table_from_file(dtb_file_name: String) {
   match std::fs::read_to_string(dtb_file_name.as_str()) {
-    Ok(dtb_input) => match dmntk_evaluator::evaluate_decision_table_test(&dtb_input, "%") {
+    Ok(dtb_input) => match dmntk_evaluator::evaluate_decision_table_and_test(&dtb_input, "%") {
       Ok((result, expected, actual)) => {
         if !result {
           println!("FAILURE");
