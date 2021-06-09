@@ -343,6 +343,7 @@ dependencies = [
  "dmntk-common",
  "dmntk-examples",
  "dmntk-feel",
+ "dmntk-feel-parser",
  "roxmltree",
 ]
 
