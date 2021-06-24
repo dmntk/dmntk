@@ -1,6 +1,6 @@
 [package]
 name = "dmntk"
-version = "0.0.8"
+version = "0.0.11"
 authors = ["Dariusz Depta <dariusz.depta@engos.software>"]
 description = "DMNTK | Decision Model and Notation Toolkit"
 documentation = "https://docs.rs/dmntk"
@@ -17,12 +17,7 @@ default = []
 bin = []
 
 [dependencies]
-dmntk-common = { path = "../common", version = "0.0.8"}
-dmntk-evaluator = { path = "../evaluator", version = "0.0.8"}
-dmntk-feel = { path = "../feel", version = "0.0.8"}
-dmntk-feel-parser = { path = "../feel-parser", version = "0.0.8"}
-dmntk-recognizer = { path = "../recognizer", version = "0.0.8"}
-dmntk-server = { path = "../server", version = "0.0.8"}
+dmntk-server = "0.0.11"
 serde = "1.0.125"
 serde_derive = "1.0.125"
 serde_yaml = "0.8"

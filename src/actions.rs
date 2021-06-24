@@ -12,11 +12,12 @@
  * SOFTWARE.
  */
 
-use {
-  super::cli::Action,
-  dmntk_common::{Feelify, Stringify},
-  dmntk_feel::Scope,
-};
+use super::cli::Action;
+use dmntk_server::dmntk_workspace::dmntk_evaluator;
+use dmntk_server::dmntk_workspace::dmntk_evaluator::dmntk_recognizer;
+use dmntk_server::dmntk_workspace::dmntk_evaluator::dmntk_recognizer::dmntk_model::dmntk_feel_parser;
+use dmntk_server::dmntk_workspace::dmntk_evaluator::dmntk_recognizer::dmntk_model::dmntk_feel_parser::dmntk_feel::dmntk_common::{Feelify, Stringify};
+use dmntk_server::dmntk_workspace::dmntk_evaluator::dmntk_recognizer::dmntk_model::dmntk_feel_parser::dmntk_feel::Scope;
 
 pub fn action() {
   match crate::cli::action() {

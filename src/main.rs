@@ -12,11 +12,7 @@
  * SOFTWARE.
  */
 
-extern crate dmntk_common;
-extern crate dmntk_evaluator;
-extern crate dmntk_feel;
-extern crate dmntk_recognizer;
-extern crate dmntk_server;
+pub extern crate dmntk_server;
 extern crate serde;
 #[cfg(feature = "bin")]
 extern crate serde_derive;
