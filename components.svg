@@ -5,7 +5,7 @@
       @import url('https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:100,200,300,400');
     </style>
   </defs>
-  <g font-family="sans-serif">
+  <g font-family="Helvetica; sans-serif">
     <text x="20" y="80" font-weight="500" font-size="28px">
       Decision Model and Notation Toolkit components
     </text>
