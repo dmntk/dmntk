@@ -72,3 +72,5 @@
                         ╚══════════════════╝
 
 ```
+
+![Components](./components.svg)
