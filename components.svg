@@ -1,22 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" version="1.0">
+<svg xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style type="text/css">
       @import url('https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:100,200,300,400');
     </style>
   </defs>
-  <g font-family="Helvetica; sans-serif">
+  <g font-family="Fira Sans Condensed">
     <text x="20" y="80" font-weight="500" font-size="28px">
       Decision Model and Notation Toolkit components
     </text>
-
-    <g font-weight="100" font-size="20px">
-
-      <g transform="translate(10 140)" stroke="#000000">
-        <rect x="0" y="0" width="220" height="70" stroke-width="2" fill="none"/>
-        <line x1="0" y1="40" x2="220" y2="40" stroke-width="0.5"/>
-        <line x1="140" y1="0" x2="140" y2="40" stroke-width="0.5"/>
-        <text x="70" y="26" text-anchor="middle" font-weight="100">examples</text>
+    <g>
+      <g transform="translate(10 140)" >
+        <g stroke="#000000">
+          <rect x="0" y="0" width="220" height="70" stroke-width="2" fill="none"/>
+          <line x1="0" y1="40" x2="220" y2="40" stroke-width="0.5"/>
+          <line x1="140" y1="0" x2="140" y2="40" stroke-width="0.5"/>
+        </g>
+        <text x="70" y="26" text-anchor="middle">examples</text>
         <text x="180" y="26" text-anchor="middle">0.0.11</text>
         <text x="110" y="62" text-anchor="middle">dmntk_examples</text>
       </g>
