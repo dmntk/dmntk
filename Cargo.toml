@@ -1,6 +1,6 @@
 [package]
 name = "dmntk"
-version = "0.0.11"
+version = "0.0.12"
 authors = ["Dariusz Depta <dariusz.depta@engos.software>"]
 description = "DMNTK | Decision Model and Notation Toolkit"
 documentation = "https://docs.rs/dmntk"
@@ -17,7 +17,9 @@ default = []
 bin = []
 
 [dependencies]
-dmntk-server = "0.0.11"
+# dmntk dependencies
+dmntk-server = { path = "../server" }
+# other dependencies
 serde = "1.0.125"
 serde_derive = "1.0.125"
 serde_yaml = "0.8"
