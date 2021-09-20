@@ -12,7 +12,7 @@
  * SOFTWARE.
  */
 
-/// Starts REST server.
+/// Starts `DMNTK` as `REST` server.
 pub fn start_server() {
   unimplemented!()
 }

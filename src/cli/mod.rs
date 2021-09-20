@@ -76,8 +76,8 @@ fn show_usage() {
   println!("  {}  feel_file ctx_file   Parse FEEL textual expression defined in text file.", CMD_PTX);
   println!("  {}  feel_file ctx_file   Evaluate FEEL textual expression defined in text file.", CMD_ETX);
   println!("  {}  config_file          Run DMNTK as a service.", CMD_SRV);
-  println!("  -h, --help, help          Display help.");
-  println!("  -v, --version, version    Display version.");
+  println!("  -h, --help                Display help.");
+  println!("  -v, --version             Display version.");
   println!();
 }
 
@@ -131,11 +131,11 @@ pub fn action() -> Action {
   }
   let options = &args[1..];
   match options[0].trim() {
-    "-h" | "--help" | "help" => {
+    "-h" | "--help" => {
       show_help();
       Action::NoAction
     }
-    "-v" | "--version" | "version" => {
+    "-v" | "--version" => {
       show_version();
       Action::NoAction
     }
