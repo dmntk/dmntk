@@ -1,0 +1,78 @@
+version: '3'
+
+silent: true
+
+tasks:
+
+  full:
+    desc: Runs clean, build, clippy, test, fmt
+    cmds:
+      - task: clean
+      - task: build
+      - task: clippy
+      - task: test
+      - task: fmt
+
+  bench:
+    desc: Runs benchmarks
+    cmds:
+      - cmd: cargo bench
+
+  build:
+    desc: Builds in debug mode
+    cmds:
+      - cmd: cargo build
+
+  build-lalr:
+    desc: Builds in debug mode with rebuilding LALR tables
+    cmds:
+      - cmd: cargo build --features=parsing-tables
+      - cmd: cargo fmt
+
+  clean:
+    desc: Cleans all targets
+    cmds:
+      - cmd: cargo clean
+
+  cov-open:
+    desc: Runs code coverage and opens it in browser
+    cmds:
+      - cmd: cargo tarpaulin --out Html --output-dir ./target/tarpaulin
+      - cmd: echo -e '#!/usr/bin/env bash\n\nfirefox ./target/tarpaulin/tarpaulin-report.html &' > ./target/tarpaulin/open-report.sh
+      - cmd: chmod +x ./target/tarpaulin/open-report.sh
+      - cmd: ./target/tarpaulin/open-report.sh
+
+  cov:
+    desc: Runs code coverage
+    cmds:
+      - cmd: cargo tarpaulin --out Html --output-dir ./target/tarpaulin
+
+  doc-open:
+    desc: Generates documentation and opens it in browser
+    cmds:
+      - cmd: cargo doc --no-deps --open
+
+  doc:
+    desc: Generates documentation
+    cmds:
+      - cmd: cargo doc --no-deps
+
+  release:
+    desc: Builds in release mode
+    cmds:
+      - cmd: cargo build --release
+
+  test:
+    desc: Runs tests in debug mode
+    cmds:
+      - cmd: cargo test
+
+  clippy:
+    desc: Runs clippy for all targets
+    cmds:
+      - cmd: cargo clippy --all-targets
+
+  fmt:
+    desc: Runs code formatter
+    cmds:
+      - cmd: cargo fmt
