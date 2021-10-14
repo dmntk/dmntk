@@ -13,11 +13,9 @@
  */
 
 use super::cli::Action;
-use dmntk_server::dmntk_workspace::dmntk_evaluator;
-use dmntk_server::dmntk_workspace::dmntk_evaluator::dmntk_recognizer;
-use dmntk_server::dmntk_workspace::dmntk_evaluator::dmntk_recognizer::dmntk_model::dmntk_feel_parser;
-use dmntk_server::dmntk_workspace::dmntk_evaluator::dmntk_recognizer::dmntk_model::dmntk_feel_parser::dmntk_feel::dmntk_common::{Feelify, Stringify};
-use dmntk_server::dmntk_workspace::dmntk_evaluator::dmntk_recognizer::dmntk_model::dmntk_feel_parser::dmntk_feel::Scope;
+use dmntk_common::{Feelify, Stringify};
+use dmntk_feel::Scope;
+use {dmntk_evaluator, dmntk_feel_parser, dmntk_recognizer};
 
 pub fn action() {
   match crate::cli::action() {

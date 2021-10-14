@@ -16,9 +16,7 @@
 //!
 //! Definitions of available command-line actions.
 
-use dmntk_server::dmntk_workspace::dmntk_evaluator::dmntk_recognizer::dmntk_model::dmntk_feel_parser::dmntk_feel::dmntk_common::{
-  Configuration, ServerConfiguration, DMNTK_COPYRIGHT, DMNTK_EXECUTABLE, DMNTK_NAME, DMNTK_VERSION,
-};
+use dmntk_common::{Configuration, ServerConfiguration, DMNTK_COPYRIGHT, DMNTK_EXECUTABLE, DMNTK_NAME, DMNTK_VERSION};
 use std::env;
 use std::path::Path;
 
