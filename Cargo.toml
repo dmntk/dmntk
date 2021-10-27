@@ -17,12 +17,12 @@ default = []
 bin = []
 
 [dependencies]
-dmntk-common = { path = "../common" }
-dmntk-evaluator = { path = "../evaluator" }
-dmntk-feel = { path = "../feel" }
-dmntk-feel-parser = { path = "../feel-parser" }
-dmntk-recognizer = { path = "../recognizer" }
-dmntk-server = { path = "../server" }
+dmntk-common = "0.0.20"
+dmntk-evaluator = "0.0.20"
+dmntk-feel = "0.0.20"
+dmntk-feel-parser = "0.0.20"
+dmntk-recognizer = "0.0.20"
+dmntk-server = "0.0.20"
 serde = "1.0.130"
 serde_derive = "1.0.130"
 serde_yaml = "0.8.21"
