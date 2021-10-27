@@ -15,7 +15,6 @@
 use super::cli::Action;
 use dmntk_common::{Feelify, Stringify};
 use dmntk_feel::Scope;
-use {dmntk_evaluator, dmntk_feel_parser, dmntk_recognizer};
 
 pub fn action() {
   match crate::cli::action() {
@@ -47,7 +46,7 @@ pub fn action() {
       // starts REST server
       dmntk_server::start_server(server_config)
     }
-    Action::NoAction => {
+    Action::DoNothing => {
       // does nothing
     }
   }
@@ -76,7 +75,7 @@ fn parse_decision_table(dtb_file_name: &str) {
 /// Recognizes the decision table loaded from text file.
 fn recognize_decision_table_from_file(dtb_file_name: &str) {
   match std::fs::read_to_string(dtb_file_name) {
-    Ok(ref text) => match dmntk_recognizer::Recognizer::recognize(&text) {
+    Ok(ref text) => match dmntk_recognizer::Recognizer::recognize(text) {
       Ok(recognizer) => {
         recognizer.trace();
       }

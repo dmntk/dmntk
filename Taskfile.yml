@@ -22,18 +22,6 @@ tasks:
     desc: Builds in debug mode
     cmds:
       - cmd: cargo build
-      - cmd: cargo build --features=bin
-
-  build-bin:
-    desc: Builds in debug mode with --features=bin
-    cmds:
-      - cmd: cargo build --features=bin
-
-  build-lalr:
-    desc: Builds in debug mode with rebuilding LALR tables
-    cmds:
-      - cmd: cargo build --features=parsing-tables
-      - cmd: cargo fmt
 
   clean:
     desc: Cleans all targets

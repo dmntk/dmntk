@@ -58,7 +58,7 @@ pub enum Action {
   /// Evaluate `FEEL` textual expression loaded from text file.
   EvaluateFeelTextualExpression(String, String),
   /// Do nothing, no action was specified.
-  NoAction,
+  DoNothing,
 }
 
 /// Prints usage to standard output.
@@ -125,17 +125,17 @@ pub fn action() -> Action {
   let args: Vec<String> = env::args().collect::<Vec<String>>();
   if args.len() < 2 {
     show_usage();
-    return Action::NoAction;
+    return Action::DoNothing;
   }
   let options = &args[1..];
   match options[0].trim() {
     "-h" | "--help" => {
       show_help();
-      Action::NoAction
+      Action::DoNothing
     }
     "-v" | "--version" => {
       show_version();
-      Action::NoAction
+      Action::DoNothing
     }
     CMD_RDT if one_file(options) => Action::RecognizeDecisionTable(options[1].to_owned()),
     CMD_PDT if one_file(options) => Action::ParseDecisionTable(options[1].to_owned()),
@@ -146,7 +146,7 @@ pub fn action() -> Action {
     CMD_SRV if one_file(options) => Action::StartServer(get_config(options[1].to_owned()).server),
     _ => {
       show_usage();
-      Action::NoAction
+      Action::DoNothing
     }
   }
 }

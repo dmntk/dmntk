@@ -9,13 +9,6 @@ readme = "USAGE.md"
 license = "MIT OR Apache-2.0"
 edition = "2021"
 
-[[bin]]
-name = "dmntk"
-
-[features]
-default = []
-bin = []
-
 [dependencies]
 dmntk-common = { path = "../common" }
 dmntk-evaluator = { path = "../evaluator" }
