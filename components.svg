@@ -14,7 +14,7 @@
           <line x1="140" y1="0" x2="140" y2="30" stroke-width="1"/>
         </g>
         <text x="70" y="20" text-anchor="middle">examples</text>
-        <text x="180" y="20" text-anchor="middle">0.0.11</text>
+        <text x="180" y="20" text-anchor="middle">0.0.20</text>
         <text x="110" y="52" text-anchor="middle">dmntk_examples</text>
       </g>
 
@@ -25,7 +25,7 @@
           <line x1="140" y1="0" x2="140" y2="30" stroke-width="1"/>
         </g>
         <text x="70" y="20" text-anchor="middle">common</text>
-        <text x="180" y="20" text-anchor="middle">0.0.11</text>
+        <text x="180" y="20" text-anchor="middle">0.0.20</text>
         <text x="110" y="52" text-anchor="middle">dmntk_common</text>
       </g>
 
@@ -36,7 +36,7 @@
           <line x1="140" y1="0" x2="140" y2="30" stroke-width="1"/>
         </g>
         <text x="70" y="20" text-anchor="middle">feel-grammar</text>
-        <text x="180" y="20" text-anchor="middle">0.0.11</text>
+        <text x="180" y="20" text-anchor="middle">0.0.20</text>
         <text x="110" y="52" text-anchor="middle">dmntk_feel_grammar</text>
       </g>
 
@@ -47,7 +47,7 @@
           <line x1="140" y1="0" x2="140" y2="30" stroke-width="1"/>
         </g>
         <text x="70" y="20" text-anchor="middle">feel</text>
-        <text x="180" y="20" text-anchor="middle">0.0.11</text>
+        <text x="180" y="20" text-anchor="middle">0.0.20</text>
         <text x="110" y="52" text-anchor="middle">dmntk_feel</text>
       </g>
 
@@ -58,7 +58,7 @@
           <line x1="140" y1="0" x2="140" y2="30" stroke-width="1"/>
         </g>
         <text x="70" y="20" text-anchor="middle">feel-parser</text>
-        <text x="180" y="20" text-anchor="middle">0.0.11</text>
+        <text x="180" y="20" text-anchor="middle">0.0.20</text>
         <text x="110" y="52" text-anchor="middle">dmntk_feel_parser</text>
       </g>
 
@@ -69,7 +69,7 @@
           <line x1="140" y1="0" x2="140" y2="30" stroke-width="1"/>
         </g>
         <text x="70" y="20" text-anchor="middle">model</text>
-        <text x="180" y="20" text-anchor="middle">0.0.11</text>
+        <text x="180" y="20" text-anchor="middle">0.0.20</text>
         <text x="110" y="52" text-anchor="middle">dmntk_model</text>
       </g>
 
@@ -80,7 +80,7 @@
           <line x1="140" y1="0" x2="140" y2="30" stroke-width="1"/>
         </g>
         <text x="70" y="20" text-anchor="middle">recognizer</text>
-        <text x="180" y="20" text-anchor="middle">0.0.11</text>
+        <text x="180" y="20" text-anchor="middle">0.0.20</text>
         <text x="110" y="52" text-anchor="middle">dmntk_recognizer</text>
       </g>
 
@@ -91,7 +91,7 @@
           <line x1="140" y1="0" x2="140" y2="30" stroke-width="1"/>
         </g>
         <text x="70" y="20" text-anchor="middle">evaluator</text>
-        <text x="180" y="20" text-anchor="middle">0.0.11</text>
+        <text x="180" y="20" text-anchor="middle">0.0.20</text>
         <text x="110" y="52" text-anchor="middle">dmntk_evaluator</text>
       </g>
 
@@ -102,7 +102,7 @@
           <line x1="140" y1="0" x2="140" y2="30" stroke-width="1"/>
         </g>
         <text x="70" y="20" text-anchor="middle">workspace</text>
-        <text x="180" y="20" text-anchor="middle">0.0.11</text>
+        <text x="180" y="20" text-anchor="middle">0.0.20</text>
         <text x="110" y="52" text-anchor="middle">dmntk_workspace</text>
       </g>
 
@@ -113,7 +113,7 @@
           <line x1="140" y1="0" x2="140" y2="30" stroke-width="1"/>
         </g>
         <text x="70" y="20" text-anchor="middle">server</text>
-        <text x="180" y="20" text-anchor="middle">0.0.11</text>
+        <text x="180" y="20" text-anchor="middle">0.0.20</text>
         <text x="110" y="52" text-anchor="middle">dmntk_server</text>
       </g>
 
@@ -124,7 +124,7 @@
           <line x1="140" y1="0" x2="140" y2="30" stroke-width="1"/>
         </g>
         <text x="70" y="20" text-anchor="middle">dmntk</text>
-        <text x="180" y="20" text-anchor="middle">0.0.11</text>
+        <text x="180" y="20" text-anchor="middle">0.0.20</text>
         <text x="110" y="52" text-anchor="middle">dmntk</text>
       </g>
 

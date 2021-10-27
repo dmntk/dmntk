@@ -8,7 +8,7 @@ To use DMNTK as a library, add the following to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-dmntk = "0.0.12"
+dmntk = "0.0.20"
 ```
 
 ### Using DMNTK as an application

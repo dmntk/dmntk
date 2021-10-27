@@ -1,12 +1,12 @@
 [package]
 name = "dmntk"
-version = "0.0.12"
+version = "0.0.20"
 authors = ["Dariusz Depta <dariusz.depta@engos.software>"]
 description = "DMNTK | Decision Model and Notation Toolkit"
 documentation = "https://docs.rs/dmntk"
 repository = "https://github.com/dmntk/dmntk.git"
 readme = "USAGE.md"
-license = "MIT"
+license = "MIT OR Apache-2.0"
 edition = "2021"
 
 [[bin]]
