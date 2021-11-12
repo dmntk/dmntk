@@ -13,7 +13,6 @@
  */
 
 use super::cli::Action;
-use dmntk_common::{Feelify, Stringify};
 use dmntk_feel::Scope;
 
 pub fn action() {
@@ -94,7 +93,7 @@ fn evaluate_decision_table_from_file(dtb_file_name: String, ctx_file_name: Strin
       match std::fs::read_to_string(dtb_file_name.as_str()) {
         Ok(ref decision_table_input) => match dmntk_evaluator::evaluate_decision_table_and_context(decision_table_input, context_input) {
           Ok(value) => {
-            println!("{}", value.stringify())
+            println!("{}", value)
           }
           Err(reason) => println!("{}", reason),
         },
@@ -112,8 +111,8 @@ fn test_decision_table_from_file(dtb_file_name: String) {
       Ok((result, expected, actual)) => {
         if !result {
           println!("FAILURE");
-          println!("Expected: {}", expected.stringify());
-          println!("  Actual: {}", actual.stringify());
+          println!("Expected: {}", expected);
+          println!("  Actual: {}", actual);
         } else {
           println!("SUCCESS!");
         }
@@ -151,7 +150,7 @@ fn evaluate_textual_expression_from_file(feel_file_name: &str, ctx_file_name: &s
         Ok(ctx) => match dmntk_feel_parser::parse_textual_expression(&ctx.clone().into(), &textual_expression, false) {
           Ok(ast_root_node) => match dmntk_evaluator::evaluate(&ctx.into(), &ast_root_node) {
             Ok(result) => {
-              println!("{}", result.feelify());
+              println!("{}", result);
             }
             Err(reason) => println!("evaluating textual expression failed with reason: {}", reason),
           },
