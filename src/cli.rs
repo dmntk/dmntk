@@ -19,9 +19,7 @@
 use clap::{load_yaml, App, AppSettings};
 use dmntk_server::ServerConfiguration;
 
-const DMNTK_NAME: &str = env!("CARGO_PKG_NAME");
 const DMNTK_VERSION: &str = env!("CARGO_PKG_VERSION");
-const DMNTK_AUTHORS: &str = env!("CARGO_PKG_AUTHORS");
 const DMNTK_DESCRIPTION: &str = env!("CARGO_PKG_DESCRIPTION");
 
 /// Available command-line actions.
@@ -49,9 +47,7 @@ pub enum Action {
 pub fn action() -> Action {
   let yaml = load_yaml!("cli.yml");
   let matches = App::from_yaml(yaml)
-    .name(DMNTK_NAME)
     .version(DMNTK_VERSION)
-    .author(DMNTK_AUTHORS.replace(":", "\n").as_str())
     .about(DMNTK_DESCRIPTION)
     .setting(AppSettings::SubcommandRequiredElseHelp)
     .get_matches();

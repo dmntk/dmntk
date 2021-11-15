@@ -1,3 +1,4 @@
+name: dmntk
 subcommands:
   - pfl:
       about: Parses FEEL expression
