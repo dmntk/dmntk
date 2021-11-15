@@ -1,0 +1,40 @@
+name: dmntk
+version: "0.0.20"
+author: Dariusz Depta Engos Software <dariusz.depta@engos.software>
+about: Decision Model and Notation Toolkit
+subcommands:
+  - pfl:
+      about: Parses FEEL expression
+      args:
+        - CONTEXT_FILE:
+            help: File containing FEEL context as input data for parsed FEEL expression
+            required: true
+            index: 1
+        - EXPRESSION_FILE:
+            help: File containing FEEL expression to be parsed
+            required: true
+            index: 2
+  - efl:
+      about: Evaluates FEEL expression
+      args:
+        - CONTEXT_FILE:
+            help: File containing FEEL context as input data for evaluated FEEL expression
+            required: true
+            index: 1
+        - EXPRESSION_FILE:
+            help: File containing FEEL expression to be evaluated
+            required: true
+            index: 2
+  - run:
+      about: Runs DMNTK as a service
+      args:
+        - host:
+            short: H
+            long: host
+            help: Host name
+            takes_value: true
+        - port:
+            short: p
+            long: port
+            help: Port number
+            takes_value: true

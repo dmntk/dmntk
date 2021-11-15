@@ -17,29 +17,29 @@ use dmntk_feel::Scope;
 
 pub fn action() {
   match crate::cli::action() {
-    Action::ParseDecisionTable(dtb_file_name) => {
-      // parses decision table from text file
-      parse_decision_table(&dtb_file_name);
-    }
-    Action::RecognizeDecisionTable(dtb_file_name) => {
-      // recognizes decision table loaded from text file
-      recognize_decision_table_from_file(&dtb_file_name);
-    }
-    Action::EvaluateDecisionTable(dtb_file_name, ctx_file_name) => {
-      // evaluates decision table and context loaded from file
-      evaluate_decision_table_from_file(dtb_file_name, ctx_file_name);
-    }
-    Action::TestDecisionTable(dtb_file_name) => {
-      // tests decision table loaded from file
-      test_decision_table_from_file(dtb_file_name);
-    }
-    Action::ParseFeelTextualExpression(feel_file_name, ctx_file_name) => {
+    // Action::ParseDecisionTable(dtb_file_name) => {
+    //   // parses decision table from text file
+    //   parse_decision_table(&dtb_file_name);
+    // }
+    // Action::RecognizeDecisionTable(dtb_file_name) => {
+    //   // recognizes decision table loaded from text file
+    //   recognize_decision_table_from_file(&dtb_file_name);
+    // }
+    // Action::EvaluateDecisionTable(dtb_file_name, ctx_file_name) => {
+    //   // evaluates decision table and context loaded from file
+    //   evaluate_decision_table_from_file(dtb_file_name, ctx_file_name);
+    // }
+    // Action::TestDecisionTable(dtb_file_name) => {
+    //   // tests decision table loaded from file
+    //   test_decision_table_from_file(dtb_file_name);
+    // }
+    Action::ParseFeelExpression(ctx_file_name, feel_file_name) => {
       // parses `FEEL` textual expression against the specified context
-      parse_textual_expression_from_file(&feel_file_name, &ctx_file_name);
+      parse_textual_expression_from_file(&ctx_file_name, &feel_file_name);
     }
-    Action::EvaluateFeelTextualExpression(feel_file_name, ctx_file_name) => {
+    Action::EvaluateFeelExpression(ctx_file_name, feel_file_name) => {
       // evaluates `FEEL` textual expression against the specified context
-      evaluate_textual_expression_from_file(&feel_file_name, &ctx_file_name);
+      evaluate_textual_expression_from_file(&ctx_file_name, &feel_file_name);
     }
     Action::StartServer(server_config) => {
       // starts REST server
@@ -52,7 +52,7 @@ pub fn action() {
 }
 
 /// Parses decision table loaded from file.
-fn parse_decision_table(dtb_file_name: &str) {
+fn _parse_decision_table(dtb_file_name: &str) {
   match std::fs::read_to_string(dtb_file_name) {
     Ok(text) => match dmntk_recognizer::scan(&text) {
       Ok(mut canvas) => {
@@ -72,7 +72,7 @@ fn parse_decision_table(dtb_file_name: &str) {
 }
 
 /// Recognizes the decision table loaded from text file.
-fn recognize_decision_table_from_file(dtb_file_name: &str) {
+fn _recognize_decision_table_from_file(dtb_file_name: &str) {
   match std::fs::read_to_string(dtb_file_name) {
     Ok(ref text) => match dmntk_recognizer::Recognizer::recognize(text) {
       Ok(recognizer) => {
@@ -85,7 +85,7 @@ fn recognize_decision_table_from_file(dtb_file_name: &str) {
 }
 
 /// Evaluates context and decision table loaded from files.
-fn evaluate_decision_table_from_file(dtb_file_name: String, ctx_file_name: String) {
+fn _evaluate_decision_table_from_file(dtb_file_name: String, ctx_file_name: String) {
   // read the context input from file
   match std::fs::read_to_string(ctx_file_name.as_str()) {
     Ok(ref context_input) => {
@@ -105,7 +105,7 @@ fn evaluate_decision_table_from_file(dtb_file_name: String, ctx_file_name: Strin
 }
 
 /// Tests decision table loaded from file.
-fn test_decision_table_from_file(dtb_file_name: String) {
+fn _test_decision_table_from_file(dtb_file_name: String) {
   match std::fs::read_to_string(dtb_file_name.as_str()) {
     Ok(dtb_input) => match dmntk_evaluator::evaluate_decision_table_and_test(&dtb_input, "%") {
       Ok((result, expected, actual)) => {
@@ -124,11 +124,11 @@ fn test_decision_table_from_file(dtb_file_name: String) {
 }
 
 /// Parses `FEEL` textual expression loaded from file and prints the parsed AST to standard output.
-fn parse_textual_expression_from_file(feel_file_name: &str, ctx_file_name: &str) {
+fn parse_textual_expression_from_file(ctx_file_name: &str, feel_file_name: &str) {
   match std::fs::read_to_string(feel_file_name) {
-    Ok(textual_expression) => match std::fs::read_to_string(ctx_file_name) {
+    Ok(feel_expression) => match std::fs::read_to_string(ctx_file_name) {
       Ok(context_definition) => match dmntk_evaluator::evaluate_context(&Scope::default(), &context_definition) {
-        Ok(ctx) => match dmntk_feel_parser::parse_textual_expression(&ctx.into(), &textual_expression, false) {
+        Ok(ctx) => match dmntk_feel_parser::parse_expression(&ctx.into(), &feel_expression, false) {
           Ok(ast_root_node) => {
             println!("    AST:{}", ast_root_node.to_string().trim_end());
           }
@@ -143,11 +143,11 @@ fn parse_textual_expression_from_file(feel_file_name: &str, ctx_file_name: &str)
 }
 
 /// Evaluates `FEEL` textual expression loaded from file and prints the result to standard output.
-fn evaluate_textual_expression_from_file(feel_file_name: &str, ctx_file_name: &str) {
+fn evaluate_textual_expression_from_file(ctx_file_name: &str, feel_file_name: &str) {
   match std::fs::read_to_string(feel_file_name) {
     Ok(textual_expression) => match std::fs::read_to_string(ctx_file_name) {
       Ok(context_definition) => match dmntk_evaluator::evaluate_context(&Scope::default(), &context_definition) {
-        Ok(ctx) => match dmntk_feel_parser::parse_textual_expression(&ctx.clone().into(), &textual_expression, false) {
+        Ok(ctx) => match dmntk_feel_parser::parse_expression(&ctx.clone().into(), &textual_expression, false) {
           Ok(ast_root_node) => match dmntk_evaluator::evaluate(&ctx.into(), &ast_root_node) {
             Ok(result) => {
               println!("{}", result);

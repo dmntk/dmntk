@@ -14,6 +14,7 @@
 
 //! Entrypoint of `DMNTK`.
 
+extern crate clap;
 extern crate dmntk_common;
 extern crate dmntk_evaluator;
 extern crate dmntk_feel;
