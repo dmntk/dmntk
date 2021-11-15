@@ -1,7 +1,3 @@
-name: dmntk
-version: "0.0.20"
-author: Dariusz Depta Engos Software <dariusz.depta@engos.software>
-about: Decision Model and Notation Toolkit
 subcommands:
   - pfl:
       about: Parses FEEL expression

@@ -19,6 +19,11 @@
 use clap::{load_yaml, App, AppSettings};
 use dmntk_server::ServerConfiguration;
 
+const DMNTK_NAME: &str = env!("CARGO_PKG_NAME");
+const DMNTK_VERSION: &str = env!("CARGO_PKG_VERSION");
+const DMNTK_AUTHORS: &str = env!("CARGO_PKG_AUTHORS");
+const DMNTK_DESCRIPTION: &str = env!("CARGO_PKG_DESCRIPTION");
+
 /// Available command-line actions.
 pub enum Action {
   /// Start decision table service in server mode.
@@ -43,7 +48,13 @@ pub enum Action {
 /// and returns an action related to valid argument.
 pub fn action() -> Action {
   let yaml = load_yaml!("cli.yml");
-  let matches = App::from_yaml(yaml).setting(AppSettings::SubcommandRequiredElseHelp).get_matches();
+  let matches = App::from_yaml(yaml)
+    .name(DMNTK_NAME)
+    .version(DMNTK_VERSION)
+    .author(DMNTK_AUTHORS.replace(":", "\n").as_str())
+    .about(DMNTK_DESCRIPTION)
+    .setting(AppSettings::SubcommandRequiredElseHelp)
+    .get_matches();
   // parse FEEL expression subcommand
   if let Some(matches) = matches.subcommand_matches("pfl") {
     let context_file_name = matches.value_of("CONTEXT_FILE").unwrap();
