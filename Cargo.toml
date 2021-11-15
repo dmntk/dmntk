@@ -1,6 +1,6 @@
 [package]
 name = "dmntk"
-version = "0.0.21"
+version = "0.0.35"
 authors = ["Dariusz Depta <dariusz.depta@engos.software>"]
 description = "DMNTK | Decision Model and Notation Toolkit"
 documentation = "https://docs.rs/dmntk"
@@ -11,12 +11,12 @@ edition = "2021"
 
 [dependencies]
 clap = { version = "2.33.3", features = ["yaml"] }
-dmntk-common = "0.0.21"
-dmntk-evaluator = "0.0.21"
-dmntk-feel = "0.0.21"
-dmntk-feel-parser = "0.0.21"
-dmntk-recognizer = "0.0.21"
-dmntk-server = "0.0.21"
+dmntk-common = "0.0.35"
+dmntk-evaluator = "0.0.35"
+dmntk-feel = "0.0.35"
+dmntk-feel-parser = "0.0.35"
+dmntk-recognizer = "0.0.35"
+dmntk-server = "0.0.35"
 serde = "1.0.130"
 serde_derive = "1.0.130"
 serde_yaml = "0.8.21"
