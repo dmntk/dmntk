@@ -12,35 +12,23 @@
  * SOFTWARE.
  */
 
-#[cfg(feature = "bin")]
+//! Entrypoint of `DMNTK`.
+
+extern crate clap;
 extern crate dmntk_common;
-#[cfg(feature = "bin")]
 extern crate dmntk_evaluator;
-#[cfg(feature = "bin")]
 extern crate dmntk_feel;
-#[cfg(feature = "bin")]
 extern crate dmntk_feel_parser;
-#[cfg(feature = "bin")]
 extern crate dmntk_recognizer;
 extern crate dmntk_server;
 extern crate serde;
-#[cfg(feature = "bin")]
 extern crate serde_derive;
 extern crate serde_yaml;
 
-#[cfg(feature = "bin")]
+mod actions;
 mod cli;
 
-#[cfg(feature = "bin")]
-mod actions;
-
-#[cfg(not(feature = "bin"))]
-fn main() {
-  println!("Decision Model and Notation Toolkit needs be compiled with --features=bin");
-}
-
-/// Main entrypoint of the application.
-#[cfg(feature = "bin")]
+/// Main entrypoint of `DMNTK`.
 fn main() {
   actions::action()
 }
