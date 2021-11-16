@@ -20,31 +20,29 @@ Decision Model and Notation Toolkit
 
 ## Installation
 
-The fastest way to install DMNTK is using `cargo`:
+To install DMNTK use `cargo`:
 
 ```shell
 $ cargo install dmntk
 ```
 
-## Usage
-
-Now run DMNTK:
+To check available commands type:
 
 ```shell
-$ dmntk
+$ dmntk --help
 ```
 
 # Quick example
 
-Create a text file named **ex1.ctx**, copy the content shown below and save in this file,
-this is the evaluation context of the `FEEL` expression (empty context in this case).
+Create a text file named **ex1.ctx**. Copy and paste the content shown below and save in this file.
+This is evaluation context of the `FEEL` expression (empty in this case).
 
 ```text
 {}
 ```
 
-Create a text file named **ex1.feel**, copy the content shown below and save in this file,
-this is the evaluated `FEEL` expression (addition in this case).
+Create a text file named **ex1.feel**. Copy and paste the content shown below and save in this file.
+This is the evaluated `FEEL` expression (addition).
 
 ```text
 1 + 2
