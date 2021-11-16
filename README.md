@@ -45,7 +45,7 @@ $ dmntk --help
 
 Create a file named **ex1.ctx**.
 Copy text shown below and save in this file.
-This is evaluation context of the `FEEL` expression (empty in this case).
+This is the evaluation context of the `FEEL` expression (empty in this case).
 
 ```text
 {}
