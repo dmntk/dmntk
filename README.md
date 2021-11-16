@@ -18,43 +18,58 @@ Decision Model and Notation Toolkit
 [coverage-badge]: https://img.shields.io/badge/Coverage-0%25-green.svg
 [coverage-url]: COVERAGE.md
 
+## Overview
+
+**DMNTK** is a platform for building, testing and evaluating decision models.
+
+**DMNTK** is based on the [Decision Model and Notation (DMN™)](https://www.omg.org/dmn/),
+the industry standard from the [Object Management Group (OMG®)](https://www.omg.org/),
+the institution behind such standards like UML®, BPMN™ and CORBA®.
+
+**DMNTK** is written in [Rust](https://www.rust-lang.org/),
+a programming language that empowers building reliable and efficient software.
+
+**DMNTK** aims to be fully compliant with [DMN™ specification](https://www.omg.org/spec/DMN).
+
 ## Installation
 
-To install DMNTK use `cargo`:
+Install DMNTK using `cargo`:
 
 ```shell
 $ cargo install dmntk
 ```
 
-To check available commands type:
+Check available commands:
 
 ```shell
 $ dmntk --help
 ```
 
-# Quick example
+## Quick example
 
-Create a text file named **ex1.ctx**. Copy and paste the content shown below and save in this file.
+Create a file named **ex1.ctx**.
+Copy text shown below and save in this file.
 This is evaluation context of the `FEEL` expression (empty in this case).
 
 ```text
 {}
 ```
 
-Create a text file named **ex1.feel**. Copy and paste the content shown below and save in this file.
+Create a file named **ex1.feel**.
+Copy text shown below and save in this file.
 This is the evaluated `FEEL` expression (addition).
 
 ```text
 1 + 2
 ```
 
-Evaluate `FEEL` expression by typing:
+Evaluate the `FEEL` expression:
 
 ```shell
 # dmntk efl ex1.ctx ex1.feel
 ```
 
-The result should be `3`
+The expected result is:
 
 ```shell
 3
@@ -65,5 +80,3 @@ The result should be `3`
 **dmntk** is distributed under the terms of both
 the MIT&nbsp;license and the Apache&nbsp;License&nbsp;(Version&nbsp;2.0).
 See [LICENSE-MIT](LICENSE-MIT) and [LICENSE-APACHE](LICENSE-APACHE) for details.
-
-
