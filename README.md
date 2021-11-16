@@ -45,7 +45,7 @@ $ dmntk --help
 
 Create a file named **ex1.ctx**. Copy text shown below and save.
 
-This is the evaluation context (empty in this case).
+This is the evaluation context (empty context).
 
 ```text
 {}
@@ -53,7 +53,7 @@ This is the evaluation context (empty in this case).
 
 Create a file named **ex1.feel**. Copy text shown below and save.
 
-This is the evaluated `FEEL` expression.
+This is the evaluated `FEEL` expression (addition).
 
 ```text
 1 + 2
