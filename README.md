@@ -17,4 +17,4 @@ DMNTK aims to be fully compliant with [DMN™ specification](https://www.omg.org
 We all know, that the most important thing in each project is the **logo**!
 Feel free to suggest or design an original logo for **Decision Model and Notation Toolkit**.
 Please send the logo to [logo@dmntk.io](mailto:logo@dmntk.io).
-Logo should be licenced under CC BY-SA 3.0 or similar.
+Logo should be licensed under CC BY-SA 3.0 or similar.
