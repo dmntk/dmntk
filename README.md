@@ -34,7 +34,7 @@ Binary version of **DMNTK** may be
 - obtained directly from [GitHub releases](https://github.com/dmntk/dmntk.rs/releases),
 - built and installed from source using [Cargo](https://crates.io/crates/dmntk).
 
-### Installing DMNTK using [Cargo](https://crates.io/crates/dmntk):
+### Installing DMNTK using [Cargo](https://crates.io/crates/dmntk):
 
 ```shell
 $ cargo install dmntk
