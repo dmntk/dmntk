@@ -32,9 +32,9 @@ Main **DMNTK** features:
 
 Binary version of **DMNTK** may be
 - obtained directly from [GitHub releases](https://github.com/dmntk/dmntk.rs/releases),
-- built and installed from source using [Cargo](https://github.com/dmntk/dmntk.rs).
+- built and installed from source using [Cargo](https://crates.io/crates/dmntk).
 
-Installing DMNTK using [Cargo](https://github.com/dmntk/dmntk.rs):
+### Installing DMNTK using [Cargo](https://crates.io/crates/dmntk):
 
 ```shell
 $ cargo install dmntk
@@ -89,6 +89,10 @@ Switch to another terminal window and run:
 $ curl -s -d '{"Full Name":"John Doe"}' -H "Content-Type: application/json" -X POST http://0.0.0.0:22022/evaluate/compliance-level-2-test-0001/Greeting%20Message
 {"data":"Hello John Doe"}
 ```
+
+## Documentation
+
+**DMNTK** documentation can be found on [dmntk.io](https://dmntk.io)
 
 ## Documentation
 
