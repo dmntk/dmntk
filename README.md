@@ -94,10 +94,6 @@ $ curl -s -d '{"Full Name":"John Doe"}' -H "Content-Type: application/json" -X P
 
 **DMNTK** documentation can be found on [dmntk.io](https://dmntk.io)
 
-## Documentation
-
-**DMNTK** documentation can be found on [dmntk.io](https://dmntk.io)
-
 ## DESIGN DMNTK LOGO!
 
 Feel free to design an original logo for **Decision Model and Notation Toolkit**.
