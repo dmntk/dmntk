@@ -1,6 +1,4 @@
-# Decision Model and Notation Toolkit ![Release][release-badge]
-
-[release-badge]: https://img.shields.io/badge/BETA-16A085.svg
+# Decision Model and Notation Toolkit
 
 ## Overview
 
