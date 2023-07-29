@@ -39,7 +39,6 @@ to ensure high performance, reliability and portability.
 - [Installation](https://dmntk.io/installation/)
 - [Getting started](https://dmntk.io/getting-started/)
 - [Command-line commands](https://dmntk.io/command-line/)
-- [Troubleshooting](https://dmntk.io/troubleshooting/)
 
 ## License
 
