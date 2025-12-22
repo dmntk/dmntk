@@ -1,6 +1,6 @@
 //! # Workspace builder
 
-use dmntk_common::{to_rdnn, ColorPalette};
+use dmntk_common::{ColorPalette, to_rdnn};
 use dmntk_model::Definitions;
 use dmntk_model_evaluator::ModelEvaluator;
 use std::collections::{HashMap, HashSet};
@@ -100,12 +100,12 @@ impl WorkspaceBuilder {
 
   /// Checks if namespaces are duplicated in workspace.
   fn check_namespace_duplicates(&self, file: &Path, workspace_name: &str, namespace: &str) -> bool {
-    if let Some(namespaces) = self.workspace_namespaces.get(workspace_name) {
-      if namespaces.contains(namespace) {
-        let file_name = self.workspace_models.get(workspace_name).unwrap().get(namespace).unwrap();
-        self.err_duplicated_namespace(file, namespace, file_name);
-        return false;
-      }
+    if let Some(namespaces) = self.workspace_namespaces.get(workspace_name)
+      && namespaces.contains(namespace)
+    {
+      let file_name = self.workspace_models.get(workspace_name).unwrap().get(namespace).unwrap();
+      self.err_duplicated_namespace(file, namespace, file_name);
+      return false;
     }
     true
   }
@@ -258,21 +258,13 @@ impl WorkspaceBuilder {
 
   /// Returns a noun in plural form, depending on specified numeric value.
   fn plural(noun: &str, number: usize) -> String {
-    if number == 1 {
-      noun.to_string()
-    } else {
-      format!("{}s", noun)
-    }
+    if number == 1 { noun.to_string() } else { format!("{}s", noun) }
   }
 
   /// Returns a string with URL encoded path segments.
   fn encoded_segments(path: &str) -> String {
     let encoded_path = path.split('/').map(|s| encode(s).to_string()).collect::<Vec<String>>().join("/");
-    if encoded_path.is_empty() {
-      "".to_string()
-    } else {
-      format!("{}/", encoded_path)
-    }
+    if encoded_path.is_empty() { "".to_string() } else { format!("{}/", encoded_path) }
   }
 
   /// Prints file loading error details.

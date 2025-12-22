@@ -144,14 +144,12 @@ impl ForExpressionEvaluator {
     self.feel_iterator.add_list(name, values);
   }
   pub fn add_range(&mut self, name: Name, range_start: Value, range_end: Value) {
-    if let Value::Number(start) = range_start {
-      if let Value::Number(end) = range_end {
-        if let Ok(i_start) = start.try_into() {
-          if let Ok(i_end) = end.try_into() {
-            self.feel_iterator.add_range(name, i_start, i_end);
-          }
-        }
-      }
+    if let Value::Number(start) = range_start
+      && let Value::Number(end) = range_end
+      && let Ok(i_start) = start.try_into()
+      && let Ok(i_end) = end.try_into()
+    {
+      self.feel_iterator.add_range(name, i_start, i_end);
     }
   }
   pub fn evaluate(&mut self, scope: &FeelScope, evaluator: &Evaluator) -> Values {
