@@ -3,6 +3,13 @@ version: '3'
 silent: true
 
 tasks:
+  all:
+    desc: Runs all viable checks
+    cmds:
+      - task: clean
+      - task: build
+      - task: clippy
+      - task: test
 
   build:
     desc: Builds in debug mode
@@ -25,9 +32,9 @@ tasks:
       - cmd: cargo +nightly fmt
 
   tck:
-    desc: Runs the server in release mode and musl target with flags for running TCK test cases
+    desc: Runs the server in release mode for running TCK test cases
     cmds:
-      - cmd: cargo +stable run --release --features=tck --target=x86_64-unknown-linux-musl -- srv -H 127.0.0.1 -D ../tck/TestCases
+      - cmd: cargo +stable run --release --features=tck -- srv -H 127.0.0.1 -D ../tck/TestCases
 
   test:
     desc: Runs tests in debug mode
