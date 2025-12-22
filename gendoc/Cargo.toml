@@ -2,9 +2,9 @@
 name = "dmntk-gendoc"
 version = { workspace = true }
 authors = { workspace = true }
-description = "DMNTK | Documentation generator"
+description = "dmntk | Documentation generator"
 documentation = "https://docs.rs/dmntk-model"
-repository = "https://github.com/dmntk/dmntk.rs.git"
+repository = { workspace = true }
 license = { workspace = true }
 edition = { workspace = true }
 

@@ -2,9 +2,9 @@
 name = "dmntk-common"
 version = { workspace = true }
 authors = { workspace = true }
-description = "DMNTK | Common definitions"
+description = "dmntk | Common definitions"
 documentation = "https://docs.rs/dmntk-common"
-repository = "https://github.com/dmntk/dmntk.rs.git"
+repository = { workspace = true }
 license = { workspace = true }
 edition = { workspace = true }
 

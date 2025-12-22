@@ -2,9 +2,9 @@
 name = "dmntk-feel-evaluator"
 version = { workspace = true }
 authors = { workspace = true }
-description = "DMNTK | FEEL evaluator"
+description = "dmntk | FEEL evaluator"
 documentation = "https://docs.rs/dmntk-feel-evaluator"
-repository = "https://github.com/dmntk/dmntk.rs.git"
+repository = { workspace = true }
 license = { workspace = true }
 edition = { workspace = true }
 

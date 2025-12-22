@@ -2,9 +2,9 @@
 name = "dmntk-recognizer"
 version = { workspace = true }
 authors = { workspace = true }
-description = "DMNTK | Decision Table Recognizer"
+description = "dmntk | Decision Table Recognizer"
 documentation = "https://docs.rs/dmntk-recognizer"
-repository = "https://github.com/dmntk/dmntk.rs.git"
+repository = { workspace = true }
 license = { workspace = true }
 edition = { workspace = true }
 

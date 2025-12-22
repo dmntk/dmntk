@@ -2,9 +2,11 @@
 name = "dmntk"
 version = { workspace = true }
 authors = { workspace = true }
-description = "DMNTK | Decision Model and Notation Toolkit"
+description = "dmntk | Decision Model and Notation Toolkit"
+categories = ["development-tools", "command-line-utilities", "finance", "parsing"]
+keywords = ["dmn", "decision", "model", "notation", "toolkit"]
 documentation = "https://docs.rs/dmntk"
-repository = "https://github.com/dmntk/dmntk.rs.git"
+repository = { workspace = true }
 license = { workspace = true }
 edition = { workspace = true }
 

@@ -2,9 +2,9 @@
 name = "dmntk-feel-parser"
 version = { workspace = true }
 authors = { workspace = true }
-description = "DMNTK | FEEL parser"
+description = "dmntk | FEEL parser"
 documentation = "https://docs.rs/dmntk-feel-parser"
-repository = "https://github.com/dmntk/dmntk.rs.git"
+repository = { workspace = true }
 license = { workspace = true }
 edition = { workspace = true }
 
