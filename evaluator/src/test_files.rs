@@ -35,9 +35,9 @@
 //! ```
 
 use dmntk_common::{DmntkError, Result};
+use dmntk_feel::FeelScope;
 use dmntk_feel::context::FeelContext;
 use dmntk_feel::values::Value;
-use dmntk_feel::FeelScope;
 use dmntk_feel_parser::AstNode;
 
 /// Evaluates test cases loaded from input test file.
@@ -49,12 +49,11 @@ pub fn evaluate_test_cases(input: &str) -> Result<Vec<(FeelContext, Value)>> {
       match dmntk_feel_parser::parse_unary_tests(&scope, unary_tests, false) {
         Ok(ast_node) => match ast_node {
           AstNode::ExpressionList(nodes) => {
-            if nodes.len() == 2 {
-              if let Ok(input_data) = dmntk_feel_evaluator::evaluate_context_node(&scope, &nodes[0]) {
-                if let Ok(expected_result) = dmntk_feel_evaluator::evaluate(&scope, &nodes[1]) {
-                  test_cases.push((input_data, expected_result));
-                }
-              }
+            if nodes.len() == 2
+              && let Ok(input_data) = dmntk_feel_evaluator::evaluate_context_node(&scope, &nodes[0])
+              && let Ok(expected_result) = dmntk_feel_evaluator::evaluate(&scope, &nodes[1])
+            {
+              test_cases.push((input_data, expected_result));
             }
           }
           other => return Err(DmntkError::new("Evaluator", &format!("expected expression list, but found '{other}'"))),
@@ -72,11 +71,7 @@ fn split_test_cases<'a>(input: &'a str, separator: &'a str) -> Vec<&'a str> {
   split
     .filter_map(|s| {
       let trimmed = s.trim();
-      if !trimmed.is_empty() {
-        Some(trimmed)
-      } else {
-        None
-      }
+      if !trimmed.is_empty() { Some(trimmed) } else { None }
     })
     .collect()
 }
@@ -97,11 +92,7 @@ fn detect_separator(input: &str) -> Option<String> {
       found = true;
     }
   }
-  if found {
-    Some(separator)
-  } else {
-    None
-  }
+  if found { Some(separator) } else { None }
 }
 
 /// Returns `true` when specified character is a test case separator character.

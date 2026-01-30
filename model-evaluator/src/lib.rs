@@ -89,7 +89,7 @@ mod utilities {
   fn diff(a: usize, b: usize) -> String {
     let color_red = color_red!(ColorMode::On);
     let color_reset = color_reset!(ColorMode::On);
-    let diff = if a > b { a - b } else { b - a };
+    let diff = a.abs_diff(b);
     if diff > 0 {
       format!("{1}{2:>9}{0}", color_reset, color_red, diff)
     } else {

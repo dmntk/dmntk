@@ -3,12 +3,19 @@ version: '3'
 silent: true
 
 tasks:
+  all:
+    desc: Runs all viable checks
+    cmds:
+      - task: clean
+      - task: build
+      - task: clippy
+      - task: test
 
   build:
     desc: Builds in debug mode
     cmds:
       - cmd: cargo +stable build --workspace
-  
+
   clean:
     desc: Cleans all targets
     cmds:
@@ -18,13 +25,23 @@ tasks:
     desc: Runs clippy for all targets
     cmds:
       - cmd: cargo +nightly clippy --workspace --all-targets
-  
+
   fmt:
     desc: Runs code formatter
     cmds:
       - cmd: cargo +nightly fmt
-  
+
+  tck:
+    desc: Runs the server in release mode for running TCK test cases
+    cmds:
+      - cmd: cargo +stable run --release --features=tck -- srv -H 127.0.0.1 -D ../tck/TestCases
+
   test:
     desc: Runs tests in debug mode
     cmds:
       - cmd: cargo +stable test --workspace
+
+  testn:
+    desc: Runs tests in debug mode using nextest
+    cmds:
+      - cmd: cargo +stable nextest run --workspace

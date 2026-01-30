@@ -8,7 +8,7 @@ use dmntk_common::Result;
 use dmntk_feel::closure::Closure;
 use dmntk_feel::context::FeelContext;
 use dmntk_feel::values::Value;
-use dmntk_feel::{value_null, Evaluator, FeelScope, FeelType, FunctionBody};
+use dmntk_feel::{Evaluator, FeelScope, FeelType, FunctionBody, value_null};
 use dmntk_feel_evaluator::BuildContext;
 use dmntk_feel_parser::ClosureBuilder;
 use dmntk_model::*;
@@ -324,11 +324,11 @@ pub fn build_relation_evaluator(scope: &FeelScope, relation: &Relation, model_bu
 
 /// Builds an evaluator that provides coercion for output type of the expression.
 fn build_coerced_result_evaluator(evaluator: Evaluator, expression: &dyn Expression, namespace: &str, model_builder: &ModelBuilder) -> Evaluator {
-  if let Some(type_ref) = expression.type_ref() {
-    if let Some(feel_type) = model_builder.item_definition_type_evaluator().information_item_type(namespace, type_ref) {
-      let coerced_result_evaluator = Box::new(move |scope: &FeelScope| evaluator(scope).coerced(&feel_type));
-      return coerced_result_evaluator;
-    }
+  if let Some(type_ref) = expression.type_ref()
+    && let Some(feel_type) = model_builder.item_definition_type_evaluator().information_item_type(namespace, type_ref)
+  {
+    let coerced_result_evaluator = Box::new(move |scope: &FeelScope| evaluator(scope).coerced(&feel_type));
+    return coerced_result_evaluator;
   }
   evaluator
 }

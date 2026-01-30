@@ -550,7 +550,7 @@
         <allowedAnswers>true (boolean)</allowedAnswers>
         <variable name="time_009"/>
         <literalExpression>
-            <text>time("10:30:00+02:00") = time("10:30:00@Europe/Paris")</text>
+            <text>time("10:30:00+01:00") = time("10:30:00@Europe/Paris")</text>
         </literalExpression>
     </decision>
 
@@ -1135,4 +1135,3 @@
     </decision>
 
 </definitions>
-

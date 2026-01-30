@@ -1,12 +1,12 @@
 [package]
 name = "dmntk-examples"
-version.workspace = true
-authors.workspace = true
-description = "DMNTK | Examples"
+version = { workspace = true }
+authors = { workspace = true }
+description = "dmntk | Examples"
 documentation = "https://docs.rs/dmntk-examples"
-repository = "https://github.com/dmntk/dmntk.rs.git"
-license.workspace = true
-edition.workspace = true
+repository = { workspace = true }
+license = { workspace = true }
+edition = { workspace = true }
 
 [dev-dependencies]
-walkdir.workspace = true
+walkdir = { workspace = true }

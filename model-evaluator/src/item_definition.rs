@@ -5,7 +5,7 @@ use crate::model_definitions::{DefDefinitions, DefItemDefinition, DefKey};
 use dmntk_common::Result;
 use dmntk_feel::context::FeelContext;
 use dmntk_feel::values::{Value, Values};
-use dmntk_feel::{value_null, Evaluator, FeelScope, FeelType, Name};
+use dmntk_feel::{Evaluator, FeelScope, FeelType, Name, value_null};
 use dmntk_feel_evaluator::BuildContext;
 use dmntk_feel_parser::AstNode;
 use dmntk_model::ItemDefinitionType;
@@ -58,13 +58,13 @@ pub fn build_item_definition_evaluator(item_definition: &DefItemDefinition) -> R
 
 fn build_allowed_values_evaluator(item_definition: &DefItemDefinition) -> Result<Option<Evaluator>> {
   let mut av_evaluator = None;
-  if let Some(unary_tests) = item_definition.allowed_values() {
-    if let Some(text) = unary_tests.text() {
-      let scope = FeelScope::default();
-      let unary_tests_node = dmntk_feel_parser::parse_unary_tests(&scope, text, false)?;
-      let node = AstNode::In(Box::new(AstNode::Name("?".into())), Box::new(unary_tests_node));
-      av_evaluator = Some(dmntk_feel_evaluator::prepare(&BuildContext::default(), &node)?);
-    }
+  if let Some(unary_tests) = item_definition.allowed_values()
+    && let Some(text) = unary_tests.text()
+  {
+    let scope = FeelScope::default();
+    let unary_tests_node = dmntk_feel_parser::parse_unary_tests(&scope, text, false)?;
+    let node = AstNode::In(Box::new(AstNode::Name("?".into())), Box::new(unary_tests_node));
+    av_evaluator = Some(dmntk_feel_evaluator::prepare(&BuildContext::default(), &node)?);
   }
   Ok(av_evaluator)
 }
@@ -409,7 +409,7 @@ mod tests {
   use dmntk_examples::item_definition::*;
   use dmntk_feel::context::FeelContext;
   use dmntk_feel::values::Value;
-  use dmntk_feel::{value_null, value_number, Name};
+  use dmntk_feel::{Name, value_null, value_number};
   use dmntk_feel_temporal::{FeelDate, FeelDateTime, FeelDaysAndTimeDuration, FeelTime, FeelYearsAndMonthsDuration};
 
   const NAMESPACE: &str = "https://dmntk.io";

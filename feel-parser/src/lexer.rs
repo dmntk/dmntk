@@ -398,11 +398,11 @@ impl<'lexer> Lexer<'lexer> {
     }
     let mut buffer: [char; BUF_SIZE] = [WS; BUF_SIZE];
     for (offset, value) in buffer.iter_mut().enumerate() {
-      if let Some(ch) = self.char_at(offset) {
-        if !is_whitespace(ch) {
-          *value = ch
-        };
-      }
+      if let Some(ch) = self.char_at(offset)
+        && !is_whitespace(ch)
+      {
+        *value = ch
+      };
     }
     buffer
   }
@@ -437,11 +437,11 @@ impl<'lexer> Lexer<'lexer> {
       (Some('/'), Some('*')) => {
         self.position += 2;
         while let Some(ch) = self.char_at(0) {
-          if ch == '*' {
-            if let Some('/') = self.char_at(1) {
-              self.position += 2;
-              return true;
-            }
+          if ch == '*'
+            && let Some('/') = self.char_at(1)
+          {
+            self.position += 2;
+            return true;
           }
           self.position += 1;
         }
@@ -604,25 +604,25 @@ impl<'lexer> Lexer<'lexer> {
     // ------------------------------------------------------------------------
     // tweak with name of the `item` in filter
     // ------------------------------------------------------------------------
-    if let Some(part_name) = parts.first() {
-      if part_name == "item" {
-        self.position = consumed_positions[0] + 1;
-        return Ok((TokenType::Name, TokenValue::Name(Name::from("item"))));
-      }
+    if let Some(part_name) = parts.first()
+      && part_name == "item"
+    {
+      self.position = consumed_positions[0] + 1;
+      return Ok((TokenType::Name, TokenValue::Name(Name::from("item"))));
     }
 
     // ------------------------------------------------------------------------
     // tweak with the name in `for` and `quantified` expressions
     // variable name is the name before the keyword `in`
     // ------------------------------------------------------------------------
-    if self.till_in {
-      if let Some(index) = parts.iter().position(|value| value == "in") {
-        self.till_in = false;
-        parts.truncate(index);
-        self.position = consumed_positions[index - 1] + 1;
-        // return the name of the local variable before `in` keyword
-        return Ok((TokenType::Name, TokenValue::Name(parts.to_vec().into())));
-      }
+    if self.till_in
+      && let Some(index) = parts.iter().position(|value| value == "in")
+    {
+      self.till_in = false;
+      parts.truncate(index);
+      self.position = consumed_positions[index - 1] + 1;
+      // return the name of the local variable before `in` keyword
+      return Ok((TokenType::Name, TokenValue::Name(parts.to_vec().into())));
     }
 
     // begin with with the longest name containing all parts
@@ -786,29 +786,17 @@ impl<'lexer> Lexer<'lexer> {
 
   /// Checks if the next value on input is whitespace character.
   fn is_next_whitespace(&self) -> bool {
-    if let Some(ch) = self.char_at(1) {
-      is_whitespace(ch)
-    } else {
-      false
-    }
+    if let Some(ch) = self.char_at(1) { is_whitespace(ch) } else { false }
   }
 
   /// Checks if the next character is the name part character.
   fn is_next_name_part_char(&self) -> bool {
-    if let Some(ch) = self.char_at(1) {
-      is_name_part_char(ch)
-    } else {
-      false
-    }
+    if let Some(ch) = self.char_at(1) { is_name_part_char(ch) } else { false }
   }
 
   /// Returns **true* when the next character on input is the additional name symbol.
   fn is_next_additional_name_symbol(&self) -> bool {
-    if let Some(ch) = self.char_at(1) {
-      is_additional_name_symbol(ch)
-    } else {
-      false
-    }
+    if let Some(ch) = self.char_at(1) { is_additional_name_symbol(ch) } else { false }
   }
 
   /// Returns the character at the current position advanced with specified offset.
@@ -823,21 +811,13 @@ impl<'lexer> Lexer<'lexer> {
   /// Checks if the next character on input is a decimal separator '.'.
   /// The dot is treated as decimal separator only if it is followed by a digit.
   fn is_char_at(&self, offset: usize, expected: char) -> bool {
-    if let Some(actual) = self.char_at(offset) {
-      actual == expected
-    } else {
-      false
-    }
+    if let Some(actual) = self.char_at(offset) { actual == expected } else { false }
   }
 
   /// Returns `true` when the character at the current
   /// position advanced by the offset is a digit.
   fn is_digit_at(&self, offset: usize) -> bool {
-    if let Some(ch) = self.char_at(offset) {
-      is_digit(ch)
-    } else {
-      false
-    }
+    if let Some(ch) = self.char_at(offset) { is_digit(ch) } else { false }
   }
 
   /// Returns `true` when the specified character is a function keyword separator,
