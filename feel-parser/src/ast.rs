@@ -1,6 +1,6 @@
 //! Implementation of a node in Abstract Syntax Tree for `FEEL` grammar.
 
-use dmntk_common::{write, AsciiLine, AsciiNode, ColorMode};
+use dmntk_common::{AsciiLine, AsciiNode, ColorMode, write};
 use dmntk_feel::{FeelType, Name};
 use std::fmt;
 use std::fmt::Write;

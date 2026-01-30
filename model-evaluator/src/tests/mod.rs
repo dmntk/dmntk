@@ -1,7 +1,7 @@
 use crate::model_evaluator::ModelEvaluator;
+use dmntk_feel::FeelScope;
 use dmntk_feel::context::FeelContext;
 use dmntk_feel::values::Value;
-use dmntk_feel::FeelScope;
 use once_cell::sync::Lazy;
 use std::sync::Arc;
 

@@ -3,9 +3,9 @@
 use crate::item_definition_context::ItemDefinitionContextEvaluator;
 use crate::model_definitions::{DefDefinitions, DefInputData, DefKey};
 use crate::type_ref::type_ref_to_feel_type;
+use dmntk_feel::FeelType;
 use dmntk_feel::context::FeelContext;
 use dmntk_feel::values::Value;
-use dmntk_feel::FeelType;
 use std::collections::HashMap;
 
 /// Type of closure that evaluates input data context.
@@ -61,8 +61,8 @@ mod tests {
   use crate::item_definition_context::ItemDefinitionContextEvaluator;
   use crate::model_definitions::{DefDefinitions, DefKey};
   use dmntk_examples::input_data::*;
-  use dmntk_feel::context::FeelContext;
   use dmntk_feel::FeelType;
+  use dmntk_feel::context::FeelContext;
 
   const NAMESPACE: &str = "https://dmntk.io";
 

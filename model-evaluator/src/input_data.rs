@@ -3,8 +3,8 @@
 use crate::item_definition::ItemDefinitionEvaluator;
 use crate::model_definitions::{DefDefinitions, DefKey};
 use crate::variable::{Variable, VariableEvaluatorFn};
-use dmntk_feel::values::Value;
 use dmntk_feel::Name;
+use dmntk_feel::values::Value;
 use std::collections::HashMap;
 use std::sync::Arc;
 
@@ -49,7 +49,7 @@ mod tests {
   use crate::model_definitions::{DefDefinitions, DefKey};
   use dmntk_examples::input_data::*;
   use dmntk_feel::values::Value;
-  use dmntk_feel::{value_number, FeelNumber, Name};
+  use dmntk_feel::{FeelNumber, Name, value_number};
 
   const NAMESPACE: &str = "https://dmntk.io";
 

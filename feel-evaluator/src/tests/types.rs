@@ -1,4 +1,4 @@
-use dmntk_feel::{scope, FeelScope, FeelType};
+use dmntk_feel::{FeelScope, FeelType, scope};
 use dmntk_feel_parser::AstNode;
 
 #[test]

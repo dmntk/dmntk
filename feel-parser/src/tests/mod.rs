@@ -12,10 +12,10 @@ macro_rules! scope {
   }};
 }
 
+use crate::ParsingScope;
 use crate::lalr::TokenType;
 use crate::lalr::TokenType::StartExpression;
 use crate::parser::Parser;
-use crate::ParsingScope;
 use difference::Changeset;
 use dmntk_feel::Name;
 pub(crate) use scope;

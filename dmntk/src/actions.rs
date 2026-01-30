@@ -1,11 +1,11 @@
 //! # Command-line actions
 
 use crate::examples::*;
-use clap::{arg, command, crate_description, crate_version, ArgAction, ArgMatches, Command};
+use clap::{ArgAction, ArgMatches, Command, arg, command, crate_description, crate_version};
 use difference::Changeset;
 use dmntk_common::*;
-use dmntk_feel::values::Value;
 use dmntk_feel::FeelScope;
+use dmntk_feel::values::Value;
 use dmntk_feel_parser::ast_tree;
 use once_cell::sync::Lazy;
 use std::fs;
