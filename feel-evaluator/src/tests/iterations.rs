@@ -1,8 +1,8 @@
+use crate::BuildContext;
 use crate::iterations::{FeelIterator, ForExpressionEvaluator};
 use crate::tests::te_scope;
-use crate::BuildContext;
-use dmntk_feel::values::{values_to_string, Value, Values};
-use dmntk_feel::{value_number, FeelNumber};
+use dmntk_feel::values::{Value, Values, values_to_string};
+use dmntk_feel::{FeelNumber, value_number};
 
 #[test]
 fn _0001() {

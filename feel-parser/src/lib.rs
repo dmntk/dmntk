@@ -15,7 +15,7 @@ mod scope;
 #[cfg(test)]
 mod tests;
 
-pub use ast::{ast_tree, AstNode};
+pub use ast::{AstNode, ast_tree};
 pub use closure::ClosureBuilder;
 pub use scope::ParsingScope;
 

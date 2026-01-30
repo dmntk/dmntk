@@ -2,7 +2,7 @@ use crate::context::FeelContext;
 use crate::names::Name;
 use crate::qualified_names::QualifiedName;
 use crate::values::Value;
-use crate::{value_number, ToFeelString};
+use crate::{ToFeelString, value_number};
 use dmntk_common::Jsonify;
 
 #[test]

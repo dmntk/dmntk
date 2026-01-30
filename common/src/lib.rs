@@ -19,4 +19,4 @@ pub use href::HRef;
 pub use idents::gen_id;
 pub use jsonify::Jsonify;
 pub use namespace::to_rdnn;
-pub use uri::{to_uri, Uri};
+pub use uri::{Uri, to_uri};

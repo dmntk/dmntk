@@ -1,5 +1,5 @@
-use crate::builders::build_evaluator;
 use crate::BuildContext;
+use crate::builders::build_evaluator;
 use dmntk_feel::values::Value;
 use dmntk_feel::{FeelNumber, FeelScope};
 use dmntk_feel_parser::AstNode;

@@ -1,6 +1,6 @@
 //! # ASCII report of the DMN model
 
-use dmntk_common::{color_256, write_indented, AsciiLine, AsciiNode, AsciiNodeBuilder, ColorMode, HRef};
+use dmntk_common::{AsciiLine, AsciiNode, AsciiNodeBuilder, ColorMode, HRef, color_256, write_indented};
 
 use dmntk_feel::Name;
 use dmntk_model::*;

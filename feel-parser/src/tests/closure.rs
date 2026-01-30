@@ -1,5 +1,5 @@
-use crate::{parse_context, parse_textual_expression, AstNode, ClosureBuilder};
-use dmntk_feel::{scope, FeelScope};
+use crate::{AstNode, ClosureBuilder, parse_context, parse_textual_expression};
+use dmntk_feel::{FeelScope, scope};
 
 #[test]
 fn _0001() {

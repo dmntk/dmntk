@@ -275,11 +275,7 @@ impl Recognizer {
   /// Returns text when not empty, otherwise returns [None].
   fn opt_text(&self, text: String) -> Option<String> {
     let s = text.trim().to_string();
-    if s.is_empty() {
-      None
-    } else {
-      Some(s)
-    }
+    if s.is_empty() { None } else { Some(s) }
   }
 
   /// Recognizes decision table components from crosstab oriented plane.

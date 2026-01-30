@@ -26,7 +26,7 @@ pub use model_evaluator::ModelEvaluator;
 
 #[cfg(test)]
 mod utilities {
-  use dmntk_common::{color_red, color_reset, ColorMode};
+  use dmntk_common::{ColorMode, color_red, color_reset};
   use std::collections::{BTreeMap, BTreeSet};
   use std::fs;
   use walkdir::WalkDir;

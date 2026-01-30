@@ -3,7 +3,7 @@
 use dmntk_common::Result;
 use dmntk_feel::context::FeelContext;
 use dmntk_feel::values::Value;
-use dmntk_feel::{value_null, Evaluator, FeelScope, Name};
+use dmntk_feel::{Evaluator, FeelScope, Name, value_null};
 use dmntk_feel_evaluator::BuildContext;
 use dmntk_feel_parser::AstNode;
 use dmntk_model::{BuiltinAggregator, DecisionTable, HitPolicy};
@@ -376,7 +376,7 @@ mod tests {
   use crate::tests::context;
   use dmntk_examples::decision_tables::H_000210;
   use dmntk_feel::values::Value;
-  use dmntk_feel::{value_number, FeelNumber};
+  use dmntk_feel::{FeelNumber, value_number};
 
   #[test]
   fn test() {

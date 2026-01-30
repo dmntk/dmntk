@@ -1,7 +1,7 @@
 //! Definitions of built-in functions.
 
-use crate::errors::*;
 use crate::FeelType;
+use crate::errors::*;
 use dmntk_common::DmntkError;
 use std::str::FromStr;
 

@@ -1,9 +1,9 @@
 //! # Compatibility benchmarks
 
 use dmntk_examples::*;
+use dmntk_feel::FeelScope;
 use dmntk_feel::context::FeelContext;
 use dmntk_feel::values::Value;
-use dmntk_feel::FeelScope;
 use dmntk_model_evaluator::ModelEvaluator;
 use once_cell::sync::Lazy;
 use std::sync::Arc;

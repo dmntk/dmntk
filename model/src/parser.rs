@@ -4,8 +4,8 @@ use crate::errors::*;
 use crate::model::*;
 use crate::validator::validate;
 use crate::xml_utils::*;
-use dmntk_common::{gen_id, to_uri, HRef, Result, Uri};
-use dmntk_feel::{Name, FEEL_TYPE_NAME_ANY};
+use dmntk_common::{HRef, Result, Uri, gen_id, to_uri};
+use dmntk_feel::{FEEL_TYPE_NAME_ANY, Name};
 use roxmltree::Node;
 
 // XML node names

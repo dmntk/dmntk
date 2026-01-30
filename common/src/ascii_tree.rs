@@ -1,6 +1,6 @@
 //! # ASCII tree with colors
 
-use crate::{ColorMode, ASCII_RESET};
+use crate::{ASCII_RESET, ColorMode};
 use std::fmt;
 use std::fmt::{Display, Formatter, Write};
 

@@ -1,5 +1,5 @@
 use super::*;
-use dmntk_feel::{scope, FeelType};
+use dmntk_feel::{FeelType, scope};
 
 #[test]
 fn _0001() {

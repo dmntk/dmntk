@@ -10,7 +10,7 @@ use crate::model_definitions::{DefKey, InvocableType, Invocables};
 use dmntk_common::Result;
 use dmntk_feel::context::FeelContext;
 use dmntk_feel::values::Value;
-use dmntk_feel::{value_null, Name};
+use dmntk_feel::{Name, value_null};
 use dmntk_model::Definitions;
 use std::sync::Arc;
 
