@@ -31,10 +31,10 @@ impl Workspaces {
 
   /// Evaluates invocable identified by invocable path.
   pub fn evaluate(&self, invocable_path: &str, input_data: &FeelContext) -> Result<Value> {
-    if let Some((workspace, namespace, invocable_name)) = self.invocables.get(invocable_path) {
-      if let Some(evaluator) = self.evaluators.get(workspace) {
-        return Ok(evaluator.evaluate_invocable(namespace, invocable_name, input_data));
-      }
+    if let Some((workspace, namespace, invocable_name)) = self.invocables.get(invocable_path)
+      && let Some(evaluator) = self.evaluators.get(workspace)
+    {
+      return Ok(evaluator.evaluate_invocable(namespace, invocable_name, input_data));
     }
     Err(err_invocable_not_found(invocable_path))
   }

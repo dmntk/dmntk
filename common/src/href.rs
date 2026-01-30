@@ -7,7 +7,7 @@
 
 use self::errors::*;
 use crate::DmntkError;
-use uriparse::{RelativeReference, URIReference, URI};
+use uriparse::{RelativeReference, URI, URIReference};
 
 /// URI reference used for utilizing `href` attribute.
 #[derive(Debug, Clone)]
@@ -43,16 +43,16 @@ impl TryFrom<&str> for HRef {
       let namespace = if path.is_empty() { None } else { Some(path) };
       return Ok(Self { namespace, id });
     }
-    if let Ok(uri_reference) = URIReference::try_from(value) {
-      if let Ok(uri) = URI::try_from(uri_reference) {
-        if uri.has_query() {
-          return Err(err_invalid_reference(value));
-        }
-        let id = uri.fragment().ok_or_else(|| err_invalid_reference_no_fragment(value))?.to_string();
-        let path = uri.into_base_uri().to_string().trim().trim_end_matches('/').to_string();
-        let namespace = if path.is_empty() { None } else { Some(path) };
-        return Ok(Self { namespace, id });
+    if let Ok(uri_reference) = URIReference::try_from(value)
+      && let Ok(uri) = URI::try_from(uri_reference)
+    {
+      if uri.has_query() {
+        return Err(err_invalid_reference(value));
       }
+      let id = uri.fragment().ok_or_else(|| err_invalid_reference_no_fragment(value))?.to_string();
+      let path = uri.into_base_uri().to_string().trim().trim_end_matches('/').to_string();
+      let namespace = if path.is_empty() { None } else { Some(path) };
+      return Ok(Self { namespace, id });
     }
     Err(err_invalid_reference(value))
   }

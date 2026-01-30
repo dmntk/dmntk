@@ -7,8 +7,8 @@ use crate::macros::invalid_argument_type;
 use dmntk_common::Result;
 use dmntk_feel::bif::Bif;
 use dmntk_feel::context::FeelContext;
-use dmntk_feel::values::{Value, Values, VALUE_FALSE, VALUE_TRUE};
-use dmntk_feel::{value_null, Evaluator, FeelNumber, FeelScope, FeelType, FunctionBody, Name, QualifiedName};
+use dmntk_feel::values::{VALUE_FALSE, VALUE_TRUE, Value, Values};
+use dmntk_feel::{Evaluator, FeelNumber, FeelScope, FeelType, FunctionBody, Name, QualifiedName, value_null};
 use dmntk_feel_parser::{AstNode, ClosureBuilder};
 use dmntk_feel_temporal::{FeelDate, FeelDateTime, FeelDaysAndTimeDuration, FeelTime, FeelYearsAndMonthsDuration};
 use std::borrow::Borrow;
@@ -602,11 +602,7 @@ fn build_filter(bx: &BuildContext, lhs: &AstNode, rhs: &AstNode) -> Result<Evalu
         for value in &values {
           let (added_local_context, has_item_entry) = if let Value::Context(local_context) = value {
             scope.push(local_context.clone());
-            if local_context.contains_entry(&name_item) {
-              (true, true)
-            } else {
-              (true, false)
-            }
+            if local_context.contains_entry(&name_item) { (true, true) } else { (true, false) }
           } else {
             (false, false)
           };
@@ -890,11 +886,11 @@ fn build_every(bx: &BuildContext, lhs: &AstNode, rhs: &AstNode) -> Result<Evalua
     return Err(err_expected_ast_node("AstNode::QuantifiedContexts", &format!("{lhs:?}")));
   };
   for item in items {
-    if let AstNode::QuantifiedContext(variable_name, expr_node) = item {
-      if let AstNode::Name(name) = variable_name.borrow() {
-        let evaluator_single = build_evaluator(bx, expr_node)?;
-        expr_evaluators.push((name.clone(), evaluator_single));
-      }
+    if let AstNode::QuantifiedContext(variable_name, expr_node) = item
+      && let AstNode::Name(name) = variable_name.borrow()
+    {
+      let evaluator_single = build_evaluator(bx, expr_node)?;
+      expr_evaluators.push((name.clone(), evaluator_single));
     }
   }
   let AstNode::Satisfies(satisfies) = rhs else {
@@ -1403,11 +1399,11 @@ fn build_named_parameters(bx: &BuildContext, lhs: &[AstNode]) -> Result<Evaluato
     let mut parameters = BTreeMap::new();
     let mut position = 1_usize;
     for evaluator in &evaluators {
-      if let Value::NamedParameter(name, value) = evaluator(scope) {
-        if let Value::ParameterName(name) = *name {
-          parameters.insert(name, (*value, position));
-          position += 1;
-        }
+      if let Value::NamedParameter(name, value) = evaluator(scope)
+        && let Value::ParameterName(name) = *name
+      {
+        parameters.insert(name, (*value, position));
+        position += 1;
       }
     }
     Value::NamedParameters(parameters)
@@ -1771,11 +1767,11 @@ fn build_some(bx: &BuildContext, lhs: &AstNode, rhs: &AstNode) -> Result<Evaluat
     return Err(err_expected_ast_node("AstNode::QuantifiedContexts", &format!("{lhs:?}")));
   };
   for item in items {
-    if let AstNode::QuantifiedContext(variable_name, expr_node) = item {
-      if let AstNode::Name(name) = variable_name.borrow() {
-        let evaluator_single = build_evaluator(bx, expr_node)?;
-        expr_evaluators.push((name.clone(), evaluator_single));
-      }
+    if let AstNode::QuantifiedContext(variable_name, expr_node) = item
+      && let AstNode::Name(name) = variable_name.borrow()
+    {
+      let evaluator_single = build_evaluator(bx, expr_node)?;
+      expr_evaluators.push((name.clone(), evaluator_single));
     }
   }
   let AstNode::Satisfies(satisfies) = rhs else {
@@ -2056,10 +2052,11 @@ pub fn eval_ternary_equality(lhs: &Value, rhs: &Value) -> Option<bool> {
     },
     Value::Range(r1s, c1s, r1e, c1e) => match rhs {
       Value::Range(r2s, c2s, r2e, c2e) => {
-        if *c1s == *c2s && *c1e == *c2e {
-          if let Some(true) = eval_ternary_equality(r1s, r2s) {
-            return eval_ternary_equality(r1e, r2e);
-          }
+        if *c1s == *c2s
+          && *c1e == *c2e
+          && let Some(true) = eval_ternary_equality(r1s, r2s)
+        {
+          return eval_ternary_equality(r1e, r2e);
         }
         Some(false)
       }
@@ -2131,12 +2128,12 @@ fn eval_in_list_in_list(l_items: &[Value], r_items: &[Value]) -> Value {
       for l in l_items {
         let mut found = false;
         for (index, r) in rhs.iter().enumerate() {
-          if available.contains(&index) {
-            if let Value::Boolean(true) = eval_in_equal(l, r) {
-              available.remove(&index);
-              found = true;
-              break;
-            }
+          if available.contains(&index)
+            && let Value::Boolean(true) = eval_in_equal(l, r)
+          {
+            available.remove(&index);
+            found = true;
+            break;
           }
         }
         if !found {
@@ -2285,11 +2282,7 @@ fn eval_in_range(lhv: &Value, l: &Value, l_closed: bool, r: &Value, r_closed: bo
 }
 
 fn eval_in_equal(left: &Value, right: &Value) -> Value {
-  if let Some(true) = eval_ternary_equality(left, right) {
-    VALUE_TRUE
-  } else {
-    VALUE_FALSE
-  }
+  if let Some(true) = eval_ternary_equality(left, right) { VALUE_TRUE } else { VALUE_FALSE }
 }
 
 fn eval_in_unary_less(left: &Value, right: &Value) -> Value {
