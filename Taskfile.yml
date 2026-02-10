@@ -11,6 +11,11 @@ tasks:
       - task: clippy
       - task: test
 
+  audit:
+    desc: Audit Cargo.lock files for vulnerable crates
+    cmds:
+      - cmd: cargo audit
+
   build:
     desc: Builds in debug mode
     cmds:
