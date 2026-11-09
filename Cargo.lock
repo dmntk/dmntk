@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "dmntk"
-version = "0.1.0"
+name = "dmntk-feel-parser"
+version = "0.0.0"

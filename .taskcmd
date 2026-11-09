@@ -1,0 +1,69 @@
+.note To use these task definitions, run:
+      `cargo install task-commander`
+
+.vars
+  .RUST_STABLE +stable
+  .RUST_NIGHTLY +nightly
+
+.tasks
+
+  .all
+    .task clean
+    .task build
+    .task clippy
+    .task pedantic
+    .task test
+    .task doc
+    .task cov
+
+  .build
+    .desc Builds in debug mode
+    .cmd cargo {{RUST_STABLE}} build
+
+  .clean
+    .desc Cleans all
+    .cmd rm -rf manual/book
+    .cmd cargo {{RUST_STABLE}} clean
+
+  .clippy
+    .desc Runs linter
+    .cmd cargo {{RUST_STABLE}} clippy --all-targets -- -D warnings
+
+  .cov
+    .desc Generates code coverage report in text format
+    .cmd cargo {{RUST_STABLE}} llvm-cov clean
+    .cmd cargo {{RUST_STABLE}} llvm-cov --no-cfg-coverage
+
+  .cov-html
+    .desc Generates code coverage report in HTML format
+    .cmd cargo {{RUST_STABLE}} llvm-cov clean
+    .cmd cargo {{RUST_STABLE}} llvm-cov --no-cfg-coverage --html
+
+  .cov-html-open
+    .desc Generates code coverage report in HTML format and opens in browser
+    .cmd cargo {{RUST_STABLE}} llvm-cov clean
+    .cmd cargo {{RUST_STABLE}} llvm-cov --no-cfg-coverage --html --open
+
+  .doc
+    .desc Generates documentation
+    .cmd cargo {{RUST_STABLE}} doc --no-deps
+
+  .doc-open
+    .desc Generates documentation and opens in browser
+    .cmd cargo {{RUST_STABLE}} doc --no-deps --open
+
+  .fmt
+    .desc Runs code formatter
+    .cmd cargo {{RUST_STABLE}} fmt
+
+  .pedantic
+    .desc Runs pedantic linter
+    .cmd cargo {{RUST_STABLE}} clippy --all-targets -- -D warnings -W clippy::pedantic -W clippy::nursery
+
+  .test
+    .desc Runs tests in debug mode
+    .cmd cargo {{RUST_STABLE}} test
+
+  .testn
+    .desc Runs tests in debug mode using nextest
+    .cmd cargo {{RUST_STABLE}} nextest run

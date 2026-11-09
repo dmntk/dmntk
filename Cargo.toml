@@ -1,4 +1,14 @@
-[package]
-name = "dmntk"
-version = "0.1.0"
+[workspace]
+members = [
+    "feel-parser"
+]
+
+resolver = "3"
+
+[workspace.package]
+version = "0.0.0"
+authors = ["Dariusz Depta <depta@engos.de>"]
+repository = "https://github.com/dmntk/dmntk.git"
+license = "MIT OR Apache-2.0"
 edition = "2024"
+publish = false # temporarily prevent from publishing

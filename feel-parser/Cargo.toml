@@ -1,0 +1,10 @@
+[package]
+name = "dmntk-feel-parser"
+version = { workspace = true }
+authors = { workspace = true }
+description = "DMNTK | FEEL parser"
+documentation = "https://docs.rs/dmntk-feel-parser"
+repository = { workspace = true }
+license = { workspace = true }
+edition = { workspace = true }
+publish = { workspace = true }
